@@ -15,6 +15,9 @@ $products = truy_van($lenhSql);
         <th>ID</th>
         <th>Tên sp</th>
         <th>Giá</th>
+        <th>
+            <a href="tao-moi.php">Tạo</a>
+        </th>
     </thead>
     <tbody>
         <?php foreach($products as $pro): ?>
@@ -22,8 +25,10 @@ $products = truy_van($lenhSql);
             <td><?php echo $pro['id'];?></td>
             <td><?php echo $pro['name'];?></td>
             <td><?php echo $pro['price'];?></td>
+            <td>
+                <a href="xoa.php?id=<?php echo $pro['id']?>">Xóa</a>
+            </td>
         </tr>
-
         <?php endforeach ?>
     </tbody>
 </table>
