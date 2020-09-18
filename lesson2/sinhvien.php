@@ -27,9 +27,7 @@ class SinhVien{
                 . ", php3: " . $this->php3
                 . ", điểm trung bình: ". round($this->trungBinh(), 2);
         return $info;
-
     }
-
 }
 
 $can = new SinhVien();
