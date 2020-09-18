@@ -16,6 +16,10 @@ class Model{
         return $this->executeQuery($query);
     }
 
+    function findOne($id){}
+    function insert($valueArrr = []){}
+    function update($id, $valueArrr = []){}
+
     function delete($id){
         $query = "delete from " . $this->table . " where id = $id";
         return $this->executeQuery($query);
