@@ -16,8 +16,46 @@ class Model{
         return $this->executeQuery($query);
     }
 
-    function findOne($id){}
-    function insert($valueArrr = []){}
+    function findOne($id){
+        // select * from table where id = $id
+        $query = "select * from " . $this->table . " where id = $id";
+        // thực thi
+        $array = $this->executeQuery($query);
+        // return giá trị ở phần tử đầu tiên của mảng trả về
+        if(count($array) > 0){
+            return $array[0];
+        }
+        
+        return null;
+    }
+    function insert($valueArrr = []){
+        /*
+            $arr = [
+                'name' => "nguyen thi diu",
+                'image' => "https://lorempixel.com/640/480/cats/?56187",
+                'cate_id' => 5,
+                'price' => 4900
+            ];
+        */
+        $query = "insert into " . $this->table;
+        $query .= " (";
+        $keyName = "";
+        $queryValue = "";
+        foreach($valueArrr as $key => $value){
+            $keyName .= "$key, ";
+            $queryValue .= "'$value', ";
+        }
+        
+        $query = rtrim($keyName, ", ");
+        $query .= " ) values ( ";
+
+        $query = rtrim($queryValue, ", ");
+        $query .= ")";
+
+        // thực thi
+        $this->executeQuery($query);
+        return true;
+    }
     function update($id, $valueArrr = []){}
 
     function delete($id){
