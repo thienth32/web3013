@@ -15,7 +15,7 @@ class BaseModel
 		$cols = " (";
 		$vals = " (";
 		foreach ($arr as $key => $value) {
-			$cols .= " $key,";
+			$cols .= " `$key`,";
 			$vals .= " :$key,";
 		}
 		$cols = rtrim($cols, ',');
@@ -33,7 +33,7 @@ class BaseModel
 		$this->queryBuilder = "update $this->tableName set ";
 		
 		foreach ($arr as $key => $value) {
-			$this->queryBuilder .= " $key = :$key,";
+			$this->queryBuilder .= " `$key` = :$key,";
 		}
 		$this->queryBuilder = rtrim($this->queryBuilder, ',');
 		$this->queryBuilder .= " where id = :id";
@@ -95,7 +95,18 @@ class BaseModel
 		}else{
 			return null;
 		}
- 	}
+	}
+	public static function find($id){
+		$model = new static();
+		$model->queryBuilder = "select * from " . $model->tableName
+							. " where id = $id";
+		$data = $model->get();
+		if(count($data) > 0){
+			return $data[0];
+		}
+		return null;
+	} 
+
  	public function get(){
  		// var_dump($this);die;
  		$stmt = $this->getConnect()->prepare($this->queryBuilder);
