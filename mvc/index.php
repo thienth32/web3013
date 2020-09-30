@@ -1,10 +1,9 @@
 <?php
 
-echo $_GET['url'];
-require_once './app/controllers/HomeController.php';
-require_once './app/controllers/CartController.php';
-use Controllers\HomeController;
-use Controllers\CartController;
+require_once './vendor/autoload.php';
+
+use App\Controllers\HomeController;
+use App\Controllers\CartController;
 
 $url = isset($_GET['url']) ? $_GET['url'] : "/";
 switch ($url) {

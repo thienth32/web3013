@@ -1,9 +1,11 @@
 <?php
-namespace Controllers;
+namespace App\Controllers;
 
+use App\Models\User;
 class HomeController{
     public function index(){
-        echo "đây là trang chủ";
+        $model = new User();
+        var_dump($model);
     }
 
     public function detail()

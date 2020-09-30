@@ -1,0 +1,9 @@
+{
+    "name": "web3013/mvc",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}
