@@ -4,8 +4,8 @@ namespace App\Controllers;
 use App\Models\User;
 class HomeController{
     public function index(){
-        $model = new User();
-        var_dump($model);
+        echo "<pre>";
+        var_dump(User::all());
     }
 
     public function detail()
