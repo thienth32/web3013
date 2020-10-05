@@ -6,6 +6,9 @@ require_once './config/db.php';
 use App\Controllers\HomeController;
 use App\Controllers\CartController;
 
+// Đọc về eloquent model
+// https://laravel.com/docs/8.x/eloquent#retrieving-single-models
+
 $url = isset($_GET['url']) ? $_GET['url'] : "/";
 switch ($url) {
     case '/':

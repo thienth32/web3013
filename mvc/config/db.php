@@ -5,12 +5,12 @@ $capsule = new Capsule;
 
 $capsule->addConnection([
     'driver'    => 'mysql',
-    'host'      => 'localhost',
-    'database'  => 'database',
+    'host'      => '127.0.0.1',
+    'database'  => 'kaopiz',
     'username'  => 'root',
-    'password'  => 'password',
-    'charset'   => 'utf8',
-    'collation' => 'utf8_unicode_ci',
+    'password'  => '123456',
+    'charset'   => 'utf8mb4',
+    'collation' => 'utf8mb4_unicode_ci',
     'prefix'    => '',
 ]);
 
