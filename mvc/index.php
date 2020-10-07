@@ -16,6 +16,10 @@ switch ($url) {
         $ctr = new HomeController();
         $ctr->index();
         break;
+    case 'remove-cate':
+        $ctr = new HomeController();
+        $ctr->remove();
+        break;
     case 'san-pham':
         // hiển thị danh sách sản phẩm
         $ctr = new ProductController();
