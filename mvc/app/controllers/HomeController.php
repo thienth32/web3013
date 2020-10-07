@@ -1,16 +1,17 @@
 <?php
 namespace App\Controllers;
 
-use App\Models\User;
+use App\Models\Category;
+
 class HomeController extends BaseController{
     public function index(){
-        $name = "thienth";
-        $age = 30;
-        $company = "FPT Polytechnic";
-        $this->render('home.index', [
-            'name' => $name,
-            'age' => $age,
-            'yourCompany' => $company
+        // hiển thị danh sách danh mục
+        // 1. lấy dữ liệu danh mục bằng model
+        $cates = Category::all();
+        // 2. render ra view kèm dữ liệu
+        // categories/index.blade.php
+        $this->render('categories.index', [
+            'cates' => $cates
         ]);
     }
 
