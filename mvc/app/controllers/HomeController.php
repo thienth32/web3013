@@ -18,6 +18,16 @@ class HomeController extends BaseController{
     {
         echo "Đây là trang chi tiết sản phẩm";
     }
+
+    public function saveAddCate(){
+        $data = $_POST;
+        $cate = new Category();
+        $cate->fill($data);
+        
+        $cate->save();
+        header('location: ' . BASE_URL);
+        die;
+    }
 }
 
 ?>
