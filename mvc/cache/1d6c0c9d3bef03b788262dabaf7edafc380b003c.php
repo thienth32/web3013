@@ -1,37 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <table>
-        <thead>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Total</th>
-            <th>
-                <a href="add-cate">Add</a>
-            </th>
-        </thead>
-        <tbody>
-            <?php $__currentLoopData = $cates; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <tr>
-                <td><?php echo e($item->id); ?></td>
-                <td><?php echo e($item->cate_name); ?></td>
-                <td><?php echo e(count($item->products)); ?></td>
-                <td>
-                    <a href="remove-cate?id=<?php echo e($item->id); ?>">Remove</a>
-                </td>
-                <td>
-                    <a href="edit-cate?id=<?php echo e($item->id); ?>">Edit</a>
-                </td>
-            </tr>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-        
-        </tbody>
-    </table>
-</body>
-</html><?php /**PATH C:\xampp\htdocs\php2\web3013\mvc\app\views/categories/index.blade.php ENDPATH**/ ?>
+<?php $__env->startSection('title', 'Danh sách danh mục'); ?>
+<?php $__env->startSection('content'); ?>
+<table class="table table-hover">
+<thead>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Total Product</th>
+    <th>
+        <a class="btn btn-sm btn-success" href="<?php echo e(BASE_URL . 'add-cate'); ?>">Add</a>
+    </th>
+</thead>
+<tbody>
+    <?php $__currentLoopData = $cates; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <tr>
+            <td><?php echo e($item->id); ?></td>
+            <td><?php echo e($item->cate_name); ?></td>
+            <td>0</td>
+            <td>
+                <a class="btn btn-sm btn-danger" onclick="confirmRemove('<?php echo e(BASE_URL . 'remove-cate?id=' . $item->id); ?>')" href="javascript:;">Remove</a>
+                <a class="btn btn-sm btn-info" href="<?php echo e(BASE_URL . 'edit-cate?id=' . $item->id); ?>">Edit</a>
+            </td>
+        </tr>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+</tbody>
+
+</table>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('js'); ?>
+<script>
+    function confirmRemove(removeurl){
+        alertify.confirm(
+            'Thông báo', 
+            'Bạn chắc chắn muốn xóa danh mục này ?', 
+            function(){ 
+                window.location.href = removeurl;
+            }, 
+            function(){ 
+                alertify.confirm().close(); 
+            }
+        );
+    }
+
+    
+
+</script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\php2\web3013\mvc\app\views/categories/index.blade.php ENDPATH**/ ?>
