@@ -8,6 +8,11 @@ class HomeController extends BaseController{
         // hiển thị danh sách danh mục
         // 1. lấy dữ liệu danh mục bằng model
         $cates = Category::all();
+        $cates->load([
+            'products'
+        ]);
+        // echo "<pre>";
+        // var_dump($cates);die;
         // 2. render ra view kèm dữ liệu
         // categories/index.blade.php
         $this->render('categories.index', [
@@ -24,10 +29,9 @@ class HomeController extends BaseController{
         header('location: ' . BASE_URL);
     }
 
-
-    public function detail()
+    public function addForm()
     {
-        echo "Đây là trang chi tiết sản phẩm";
+        $this->render('categories.add-form');
     }
 }
 
