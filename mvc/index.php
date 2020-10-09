@@ -15,12 +15,7 @@ switch ($url) {
         $ctr = new HomeController();
         $ctr->index();
         break;
-    case 'san-pham':
-        //hien thi danh sach san pham
-        $ctr = new ProducController();
-        $ctr->index();
-        break;
-        case 'chi-tiet':
+    case 'chi-tiet':
         $ctr = new HomeController();
         $ctr->detail();
         break;
