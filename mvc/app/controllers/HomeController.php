@@ -11,8 +11,6 @@ class HomeController extends BaseController{
         $cates->load([
             'products'
         ]);
-        // echo "<pre>";
-        // var_dump($cates);die;
         // 2. render ra view kèm dữ liệu
         // categories/index.blade.php
         $this->render('categories.index', [
