@@ -15,9 +15,10 @@ switch ($url) {
         $ctr = new HomeController();
         $ctr->index();
         break;
-    case 'chi-tiet':
-        $ctr = new HomeController();
-        $ctr->detail();
+    case 'san-pham':
+        //hiển thị danh sách sản phẩm
+        $ctr = new ProductController();
+        $ctr->index();
         break;
     case 'gio-hang':
         $ctr = new CartController();

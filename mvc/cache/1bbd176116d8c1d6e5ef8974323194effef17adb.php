@@ -7,7 +7,12 @@
     <title>Document</title>
 </head>
 <body>
+    <p>Tên:</p><?php echo $name?>
+    <p>Tuổi:</p><?php echo $age?>
+    <p>Nghề nghiệp:</p><?php echo $yourCompany?>
+
 
 
 </body>
 </html>
+<?php /**PATH C:\xampp\htdocs\php2\web3013\mvc\app\views/home/index.blade.php ENDPATH**/ ?>
