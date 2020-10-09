@@ -33,6 +33,15 @@ class HomeController extends BaseController{
     {
         $this->render('categories.add-form');
     }
+    public function editForm()
+    {
+        $cateid = isset($_GET['id']) ? $_GET['id'] : -1;
+        $model = Category::find($cateid);
+        if(!$model) {
+            header('location: ' . BASE_URL); die;
+        }
+        $this->render('categories.edit-form', compact('model'));
+    }
 
     public function saveAddCate(){
         $data = $_POST;

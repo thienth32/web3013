@@ -24,6 +24,10 @@ switch ($url) {
         $ctr = new HomeController();
         $ctr->addForm();
         break;
+    case 'edit-cate':
+        $ctr = new HomeController();
+        $ctr->editForm();
+        break;
     case 'save-add-cate':
         $ctr = new HomeController();
         $ctr->saveAddCate();
