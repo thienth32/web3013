@@ -15,6 +15,16 @@ class HomeController extends BaseController{
         ]);
     }
 
+    public function remove(){
+        $id = isset($_GET['id']) ? $_GET['id'] : -1;
+        $model = Category::find($id);
+        if($model){
+            $model->delete();
+        }
+        header('location: ' . BASE_URL);
+    }
+
+
     public function detail()
     {
         echo "Đây là trang chi tiết sản phẩm";
