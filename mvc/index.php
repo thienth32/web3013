@@ -23,6 +23,11 @@ switch ($url) {
     case 'add-cate':
         $ctr = new HomeController();
         $ctr->addForm();
+        break;
+    case 'save-add-cate':
+        $ctr = new HomeController();
+        $ctr->saveAddCate();
+        break;
     case 'san-pham':
         // hiển thị danh sách sản phẩm
         $ctr = new ProductController();
