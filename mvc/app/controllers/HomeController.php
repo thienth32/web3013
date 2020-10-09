@@ -52,6 +52,18 @@ class HomeController extends BaseController{
         header('location: ' . BASE_URL);
         die;
     }
+
+    public function saveEditCate(){
+        $id = $_POST['id'];
+        $cate = Category::find($id);
+        if($cate) {
+            $data = $_POST;
+            $data['show_menu'] = isset($data['show_menu']) ? $data['show_menu'] : 0;
+            $cate->fill($data);
+            $cate->save();
+        }
+        header('location: ' . BASE_URL); die;
+    }
 }
 
 ?>

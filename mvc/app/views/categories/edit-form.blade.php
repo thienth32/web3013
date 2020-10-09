@@ -7,6 +7,7 @@
         <div class="col-6 offset-3">
             <h3 class="text-center text-info">Cập nhật danh mục</h3>
             <form action="{{ BASE_URL . 'save-edit-cate'}}" method="post">
+                <input type="hidden" value="{{$model->id}}" name="id">
                 <div class="form-group">
                     <label for="">Tên danh mục</label>
                     <input type="text" name="cate_name" 
