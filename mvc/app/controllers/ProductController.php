@@ -10,7 +10,6 @@ class ProductController extends BaseController{
             'products' => $pro,
         ]);
     }
-
-
+}
 
 ?>
