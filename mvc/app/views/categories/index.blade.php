@@ -16,7 +16,7 @@
         <tr>
             <td>{{$item->id}}</td>
             <td>{{$item->cate_name}}</td>
-            <td>0</td>
+            <td>{{ count($item->products) }}</td>
             <td>
                 <a class="btn btn-sm btn-danger" onclick="confirmRemove('{{BASE_URL . 'remove-cate?id=' . $item->id}}')" href="javascript:;">Remove</a>
                 <a class="btn btn-sm btn-info" href="{{BASE_URL . 'edit-cate?id=' . $item->id}}">Edit</a>
