@@ -9,9 +9,14 @@
         <li class="nav-item active">
             <a class="nav-link" href="{{BASE_URL . 'san-pham'}}">Sản phẩm <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
             <a class="nav-link" href="{{BASE_URL . 'tai-khoan'}}">Tài khoản</a>
         </li>
+        @if(isset($_SESSION[AUTH]))
+        <li class="nav-item active">
+            <a class="nav-link" href="{{BASE_URL . 'logout'}}">Hello, {{$_SESSION[AUTH]['name']}} - Đăng xuất</a>
+        </li>
+        @endif
     </ul>
     </div>
 </nav>

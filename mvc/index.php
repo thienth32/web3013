@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once './config/helpers.php';
 require_once './vendor/autoload.php';
 require_once './config/db.php';
@@ -7,6 +7,8 @@ require_once './config/db.php';
 use App\Controllers\HomeController;
 use App\Controllers\CartController;
 use App\Controllers\ProductController;
+use App\Controllers\LoginController;
+
 // Đọc về eloquent model
 // https://laravel.com/docs/8.x/eloquent#retrieving-single-models
 
@@ -15,6 +17,18 @@ switch ($url) {
     case '/':
         $ctr = new HomeController();
         $ctr->index();
+        break;
+    case 'login':
+        $ctr = new LoginController();
+        $ctr->loginForm();
+        break;
+    case 'post-login':
+        $ctr = new LoginController();
+        $ctr->postLogin();
+        break;
+    case 'logout':
+        $ctr = new LoginController();
+        $ctr->logout();
         break;
     case 'remove-cate':
         $ctr = new HomeController();
