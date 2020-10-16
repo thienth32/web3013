@@ -62,6 +62,26 @@ class HomeController extends BaseController{
         }
         header('location: ' . BASE_URL); die;
     }
+
+    public function searchCate(){
+        $keyword = $_POST['keyword'];
+        $cate = Category::where('cate_name', 'like', "%$keyword%")->get();
+        $content = "";
+        foreach($cate as $item){
+            $showmenu = $item->show_menu == 1 ? "yes" : "no" ;
+            $content .= "<tr>
+                            <td> ". $item->id ." </td>
+                            <td>".$item->cate_name."</td>
+                            <td>". count($item->products) ."</td>
+                            <td>". $showmenu ."</td>
+                            <td>
+                                <a class='btn btn-sm btn-danger' onclick='confirmRemove('". BASE_URL . 'remove-cate?id=' . $item->id."')' href='javascript:;'>Remove</a>
+                                <a class='btn btn-sm btn-info' href='".BASE_URL . 'edit-cate?id=' . $item->id."'>Edit</a>
+                            </td>
+                        </tr>";
+        }
+        echo $content;
+    }
 }
 
 ?>
