@@ -1,6 +1,17 @@
 @extends('layouts.main')
 @section('title', 'Danh sách danh mục')
 @section('content')
+<div class="row">
+    <div class="col-4">
+        <div class="form-group">
+            <label for="">Tìm kiếm</label>
+            <input type="text" id="search" class="form-control">
+        </div>
+    </div>
+</div>
+<ul id="result">
+
+</ul>
 <table class="table table-hover">
 <thead>
     <th>ID</th>
@@ -27,9 +38,25 @@
 </tbody>
 
 </table>
+<input type="hidden" id="search-category-url" value="{{BASE_URL . 'api/search-cate'}}">
 @endsection
 @section('js')
 <script>
+    $('#search').keyup(function(){
+        const requestData = {
+            keyword: $(this).val()
+        };
+        $.ajax({
+            url: $('#search-category-url').val(),
+            method: 'POST',
+            data: requestData,
+            dataType: 'html',
+            success: function(response){
+                $('tbody').empty();
+                $('tbody').html(response);
+            }
+        });
+    })
     function confirmRemove(removeurl){
         alertify.confirm(
             'Thông báo', 
