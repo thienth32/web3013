@@ -12,6 +12,11 @@
         <li class="nav-item">
             <a class="nav-link" href="{{BASE_URL . 'tai-khoan'}}">Tài khoản</a>
         </li>
+        @if(isset($_SESSION[AUTH]))
+        <li class="nav-item active">
+            <a class="nav-link" href="{{BASE_URL . 'logout'}}">Hello, {{$_SESSION[AUTH]['name']}} - Đăng xuất</a>
+        </li>
+        @endif
     </ul>
     </div>
 </nav>

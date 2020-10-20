@@ -5,6 +5,14 @@ class Product extends Model{
 
     protected $table = "products";
     
+    protected $fillable = [
+        'id',
+        'name',
+        'image',
+        'short_desc',
+        'detail'
+    ];
+    
 }
 
 ?>

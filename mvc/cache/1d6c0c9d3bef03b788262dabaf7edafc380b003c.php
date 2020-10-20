@@ -5,6 +5,7 @@
     <th>ID</th>
     <th>Name</th>
     <th>Total Product</th>
+    <th>Show menu</th>
     <th>
         <a class="btn btn-sm btn-success" href="<?php echo e(BASE_URL . 'add-cate'); ?>">Add</a>
     </th>
@@ -14,7 +15,8 @@
         <tr>
             <td><?php echo e($item->id); ?></td>
             <td><?php echo e($item->cate_name); ?></td>
-            <td>0</td>
+            <td><?php echo e(count($item->products)); ?></td>
+            <td><?php echo e($item->show_menu == 1 ? "yes" : "no"); ?></td>
             <td>
                 <a class="btn btn-sm btn-danger" onclick="confirmRemove('<?php echo e(BASE_URL . 'remove-cate?id=' . $item->id); ?>')" href="javascript:;">Remove</a>
                 <a class="btn btn-sm btn-info" href="<?php echo e(BASE_URL . 'edit-cate?id=' . $item->id); ?>">Edit</a>
@@ -39,9 +41,7 @@
             }
         );
     }
-
     
-
 </script>
 <?php $__env->stopSection(); ?>
 
